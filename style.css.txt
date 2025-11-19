@@ -1,0 +1,157 @@
+/* --- NEW FEATURE STYLES (Collaboration & Workflow) --- */
+
+/* Timeline View (Feature 4) */
+#toggleTimelineButton {
+    padding: 10px 15px;
+    margin: 15px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.timeline-group {
+    margin-bottom: 30px;
+    padding-left: 15px;
+    border-left: 3px solid #ccc;
+}
+
+.timeline-group h3 {
+    margin-top: 0;
+    margin-left: -30px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    display: inline-block;
+    border-radius: 6px;
+    font-size: 1.2em;
+}
+
+/* Override list display for timeline view */
+.idea-list.timeline-view {
+    display: block;
+    gap: 0;
+}
+
+.idea-list.timeline-view .idea-card {
+    margin-bottom: 15px;
+}
+
+/* Rich Text Editor (Feature 3) */
+.rte-container {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#rteToolbar {
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    background-color: #f7f7f7;
+}
+
+#rteToolbar button {
+    padding: 5px 8px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rte-content {
+    min-height: 100px;
+    padding: 12px;
+    font-size: 1em;
+}
+
+/* Placeholder text for contenteditable */
+.rte-content:empty:before {
+    content: attr(data-placeholder);
+    color: #aaa;
+}
+
+/* Commenting Styles (Feature 1) */
+.comments-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+#commentList {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.comment-meta {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+#commentFormContainer textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    resize: vertical;
+}
+
+#addCommentButton {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#addCommentButton:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Modal Metadata (Assigned, Due Date) */
+.modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Assigned indicator on card */
+.assigned-badge {
+    font-size: 0.8em;
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+/* Export/Import Buttons */
+#importButton, #exportButton {
+    background-color: #6f42c1; /* Purple */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#importInput.hidden {
+    display: none;
+}
