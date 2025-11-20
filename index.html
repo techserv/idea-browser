@@ -3,142 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idea Browser Clone - Full Stack</title>
+    <title>Idea Browser Clone</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="submission-form" id="submissionForm">
-            <h3 id="formTitle">Share Your Idea</h3>
-            <form id="newIdeaForm">
-                <input type="text" id="newIdeaTitle" placeholder="Idea Title (e.g., AI-Powered Note-Taking)" required>
-                
-                <div class="rte-container">
-                    <div id="rteToolbar">
-                        <button type="button" data-command="bold">B</button>
-                        <button type="button" data-command="insertOrderedList">OL</button>
-                        <button type="button" data-command="insertUnorderedList">UL</button>
-                        <button type="button" data-command="createLink">Link</button>
-                    </div>
-                    <div id="newIdeaDescription" class="rte-content" contenteditable="true" data-placeholder="Detailed description of the idea..." required></div>
-                </div>
-                
-                <input type="text" id="newIdeaTags" placeholder="Tags (e.g., SaaS, B2B, Mobile - comma separated)">
-
-                <input type="text" id="newIdeaAssignee" placeholder="Assign to (Username)">
-                
-                <label for="newIdeaDueDate">Due Date:</label>
-                <input type="date" id="newIdeaDueDate">
-                
-                <select id="newIdeaCategory" required>
-                    <option value="">-- Select Category --</option>
-                    <option value="Design">Design</option>
-                    <option value="Development">Development</option>
-                    <option value="Marketing">Marketing</option>
-                </select>
-
-                <select id="newIdeaStatus" required>
-                    <option value="New">New</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Review">Review</option>
-                    <option value="Completed">Completed</option>
-                </select>
-                
-                <button type="submit" id="submitIdeaButton">Add Idea</button>
-                <button type="button" id="cancelEditButton" class="hidden">Cancel Edit</button>
-            </form>
-        </div>
         <header class="header">
             <h1 class="logo">Idea Browser</h1>
             <input type="text" id="searchInput" placeholder="Search ideas..." class="search-input">
-            
             <div class="tabs">
                 <button class="tab-button active">All</button>
                 <button class="tab-button">Design</button>
                 <button class="tab-button">Development</button>
                 <button class="tab-button">Marketing</button>
-                <button class="tab-button" id="assignedToMeButton">Assigned To Me</button>
-            </div> 
-            
-            <div class="sort-control">
-                <label for="sortSelector">Sort by:</label>
-                <select id="sortSelector" class="sort-select">
-                    <option value="default">Default (Unsorted)</option>
-                    <option value="title">Title (A-Z)</option>
-                    <option value="category">Category (A-Z)</option>
-                    <option value="votes">Popularity (High to Low)</option>
-                    <option value="dueDate">Due Date (Soonest)</option>
-                </select>
-            </div>
-            
-            <div class="filter-controls">
-                <div class="status-filter">
-                    <label for="statusSelector">Status:</label>
-                    <select id="statusSelector" class="sort-select">
-                        <option value="All">All Statuses</option>
-                        <option value="New">New</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="Review">Review</option>
-                        <option value="Completed">Completed</option>
-                    </select>
-                </div>
-                <div class="tag-filter-area">
-                    </div>
             </div>
         </header>
 
-        <div class="top-bar-user">
-            <span id="userStatus">Hello, Guest!</span>
-            <button id="signInButton">Sign In</button>
-            <button id="showDashboardButton">Show Dashboard</button>
-            <button id="exportButton">Export Data</button>
-            <input type="file" id="importInput" accept="application/json" class="hidden">
-            <button id="importButton">Import Data</button>
-        </div>
-        
-        <div id="dashboardSection" class="dashboard-section hidden">
-            </div>
-
-        <button id="toggleTimelineButton">Toggle Timeline View</button>
-
         <main class="idea-list" id="ideaList">
-            </main>
-    </div>
-
-    <div id="ideaModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <p id="modalCategory"></p>
-            <p id="modalDescription" class="modal-description-content"></p>
-            
-            <hr>
-            
-            <div class="modal-meta">
-                <p id="modalAuthor">Author:</p>
-                <p id="modalStatus">Status:</p>
-                <p id="modalAssignedTo">Assigned To:</p>
-                <p id="modalDueDate">Due Date:</p>
+            <div class="idea-card" data-category="Development" data-title="Serverless Backend Framework">
+                <h2>Serverless Backend Framework</h2>
+                <p class="description">A cloud-agnostic framework for rapidly deploying backend services using serverless functions.</p>
+                <span class="tag">Development</span>
             </div>
 
-            <div class="modal-actions">
-                <button id="editIdeaButton" class="action-button edit-button">Edit Idea</button>
-                <button id="deleteIdeaButton" class="action-button delete-button">Delete Idea</button>
+            <div class="idea-card" data-category="Design" data-title="Dark Mode UI Kit">
+                <h2>Dark Mode UI Kit</h2>
+                <p class="description">A comprehensive set of pre-designed components optimized for low-light environments and reduced eye strain.</p>
+                <span class="tag">Design</span>
             </div>
             
-            <hr>
-
-            <div class="comments-section">
-                <h4>Comments (<span id="commentCount">0</span>)</h4>
-                <div id="commentList">
-                    </div>
-                <div id="commentFormContainer">
-                    <textarea id="newCommentText" placeholder="Add a comment..."></textarea>
-                    <button id="addCommentButton" disabled>Post Comment</button>
-                    <p id="commentSignInNotice">Sign in to comment.</p>
-                </div>
+            <div class="idea-card" data-category="Marketing" data-title="Interactive Email Campaigns">
+                <h2>Interactive Email Campaigns</h2>
+                <p class="description">Explore new ways to embed mini-apps or surveys directly within marketing emails.</p>
+                <span class="tag">Marketing</span>
             </div>
-        </div>
+
+            <div class="idea-card" data-category="Development" data-title="Code Snippet Sharing Tool">
+                <h2>Code Snippet Sharing Tool</h2>
+                <p class="description">An application that allows teams to easily store, tag, and search for reusable code blocks.</p>
+                <span class="tag">Development</span>
+            </div>
+            
+        </main>
     </div>
 
     <script src="script.js"></script>
