@@ -1,157 +1,117 @@
-/* --- NEW FEATURE STYLES (Collaboration & Workflow) --- */
-
-/* Timeline View (Feature 4) */
-#toggleTimelineButton {
-    padding: 10px 15px;
-    margin: 15px 0;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+/* Global Reset and Typography */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7; /* Light background */
+    color: #333;
+    display: flex;
+    justify-content: center;
 }
 
-.timeline-group {
+.container {
+    width: 100%;
+    max-width: 900px; /* Constrain width like the original site */
+    padding: 20px;
+}
+
+/* Header, Search, and Tabs Styling */
+.header {
     margin-bottom: 30px;
-    padding-left: 15px;
-    border-left: 3px solid #ccc;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
 }
 
-.timeline-group h3 {
-    margin-top: 0;
-    margin-left: -30px;
-    padding: 5px 10px;
+.logo {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #007bff; /* A simple primary color */
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #555;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tab-button:hover {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.tab-button.active {
     background-color: #007bff;
     color: white;
-    display: inline-block;
-    border-radius: 6px;
-    font-size: 1.2em;
+    border-color: #007bff;
 }
 
-/* Override list display for timeline view */
-.idea-list.timeline-view {
-    display: block;
-    gap: 0;
+/* Idea List and Card Styling */
+.idea-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 20px;
 }
 
-.idea-list.timeline-view .idea-card {
-    margin-bottom: 15px;
-}
-
-/* Rich Text Editor (Feature 3) */
-.rte-container {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-
-#rteToolbar {
-    border-bottom: 1px solid #ddd;
-    padding: 5px;
-    background-color: #f7f7f7;
-}
-
-#rteToolbar button {
-    padding: 5px 8px;
-    margin-right: 5px;
-    border: 1px solid #ccc;
+.idea-card {
     background-color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.rte-content {
-    min-height: 100px;
-    padding: 12px;
-    font-size: 1em;
-}
-
-/* Placeholder text for contenteditable */
-.rte-content:empty:before {
-    content: attr(data-placeholder);
-    color: #aaa;
-}
-
-/* Commenting Styles (Feature 1) */
-.comments-section {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
-}
-
-#commentList {
-    max-height: 200px;
-    overflow-y: auto;
-    margin-bottom: 15px;
-}
-
-.comment {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    transition: transform 0.2s, box-shadow 0.2s;
     border: 1px solid #eee;
 }
 
-.comment-meta {
-    font-size: 0.8em;
-    color: #666;
-    margin-bottom: 5px;
+.idea-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-#commentFormContainer textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    resize: vertical;
-}
-
-#addCommentButton {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-#addCommentButton:disabled {
-    background-color: #aaa;
-    cursor: not-allowed;
-}
-
-/* Modal Metadata (Assigned, Due Date) */
-.modal-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 15px;
-    font-size: 0.95em;
-    color: #555;
-}
-
-/* Assigned indicator on card */
-.assigned-badge {
-    font-size: 0.8em;
-    background-color: #ffeb3b;
+.idea-card h2 {
+    font-size: 1.25em;
+    margin-top: 0;
+    margin-bottom: 10px;
     color: #333;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-left: 10px;
 }
 
-/* Export/Import Buttons */
-#importButton, #exportButton {
-    background-color: #6f42c1; /* Purple */
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+.idea-card .description {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
 }
 
-#importInput.hidden {
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #e9f5ff;
+    color: #007bff;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+/* Hide cards that don't match the filter */
+.idea-card.hidden {
     display: none;
 }
